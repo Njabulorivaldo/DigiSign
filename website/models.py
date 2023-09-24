@@ -18,6 +18,7 @@ class Image(db.Model):
 class Screens(db.Model):
     id = db.Column(db.Integer, primary_key = True)
     content_id = db.Column(db.Integer, db.ForeignKey("content.id"))
+    user_id = db.Column(db.Integer, db.ForeignKey("user.id"))
     location = db.Column(db.String(150))
     status = db.Column(db.String(150)) # Offline/ Online/ Maintenance
     contents = db.relationship("Content")
@@ -28,3 +29,4 @@ class User(db.Model, UserMixin):
     password = db.Column(db.String(150))
     department = db.Column(db.String(150))
     contents = db.relationship("Content")
+    screens = db.relationship("Screens")
