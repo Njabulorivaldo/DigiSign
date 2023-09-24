@@ -1,44 +1,57 @@
-{% extends "base.html" %} {% block title %} Sign-up {% endblock %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>DigiSign</title>
 
-{% block content %}
-<h1>This is signUp Page</h1>
-<form method = "POST">
-    <h3 align = "center"> Sign-Up</h3>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="../static/css/login_style.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
 
-    <div class="form-group">
-        <label for="email"> Email Address</label>
-        <input type="email" class="form-cntrol" 
-        id="email" name="email" 
-        placeholder="Enter Eimail"/>
-    </div>
+<div class="container" id="container">
+<div class="form-container sign-in-up-container">
 
-    <div class="form-group">
-        <label for="department"> Department</label>
-        <input type="text" class="form-cntrol" 
-        id="department" name="department" 
-        placeholder="Enter Department"/>
-    </div>
+<form method="POST">
+	<h1>Create Account</h1>
+	<div class="social-container">
+		<a href="#" class="social"><i class="fa fa-facebook"></i></a>
+		<a href="#" class="social"><i class="fa fa-google"></i></a>
+		<a href="#" class="social"><i class="fa fa-linkedin"></i></a>
+	</div>
+	<span>or use your email for registration</span>
+	<input type="email" name="email" id="email" placeholder="Email" required>
+	
+	<select name="department" id="department" required>
+  		<option value=""> Select Department</option>
+  		<option value="Computer Science">Computer Science</option>
+  		<option value="Physics">Physics</option>
+ 		<option value="Astronomy">Astronomy</option>
+  		<option value="Mathematics & Applied Mathematics">Mathematics & Applied Mathematics</option>
+	</select>
+	
+	<input type="password" name="password1" id="passowrd1" placeholder="Password" required>
+	<input type="password" name="password2" id="password2" placeholder="Confirm Password" required>
 
-    <div class="form-group">
-        <label for="passowrd1"> Password</label>
-        <input 
-        type="password" 
-        class="form-cntrol" 
-        id="password1" 
-        name="password1" 
-        placeholder="Enter Password"
-        />
-    </div>
-
-    <div class="form-group">
-        <label for="password2"> Confirm Password</label>
-        <input type="password" class="form-cntrol" 
-        id="password2" name="password2" 
-        placeholder="Confirm Passoword"/>
-    </div>
-
-    <br />
-
-    <button type="submit" class="btn btn-primary"> SignUp</button>
+	<span id="password-match-error" style="color: red; display: none;">Passwords do not match.</span>
+	
+	<button type="submit">Sign Up</button>
+	{{msg}}
 </form>
-{% endblock %}  
+</div>
+<div class="overlay-container">
+	<div class="overlay">
+		<div class="overlay-panel overlay-right">
+			<h1> Digital Signage</h1>
+			<p>START YOUR DIGITAL JOURNEY TODAY </br></br>SIGNAGE MADE EASY...!</p>
+			<a href="/login"> <button class="ghost"> Sign In </button></a>
+			<p> Have an account? Sign in</p>
+		</div> 
+	</div>
+</div>
+</div>
+
+
+</body>
+</html>
