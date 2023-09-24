@@ -9,6 +9,7 @@ auth = Blueprint("auth", __name__)
 
 @auth.route("/login", methods=["GET", "POST"])
 def login():
+    message=""
     if request.method == 'POST':
         email = request.form.get('email')
         password = request.form.get('password')
@@ -16,14 +17,14 @@ def login():
         user = User.query.filter_by(email=email).first()
         if user:
             if check_password_hash(user.password, password):
-                flash('Logged in successfully!', category='success')
                 login_user(user, remember=True) 
-                return redirect(url_for('views.home'))
+                return redirect(url_for('views.dashboard'))
             else:
-                flash('Incorrect Username/Password', category='error')
+                message="Incorrect Username/Password"
         else:
-            flash('Incorrect Username/Password', category='error')
-    return render_template("login.html", user=current_user)
+            message="Incorrect Username/Password"
+    return render_template("login.html", user=current_user, msg=message)
+
 
 @auth.route("/logout")  
 @login_required   
@@ -33,7 +34,7 @@ def logout():
 
 @auth.route("/sign-up", methods=["GET", "POST"])
 def signup():
-
+    message=""
     if request.method == "POST":
         email = request.form.get("email")
         department = request.form.get("department")
@@ -44,22 +45,10 @@ def signup():
         #Extra security features
         user = User.query.filter_by(email=email).first()
         if user:
-            flash("Department user already exists, please log in.", category="error")
-        
-        elif len(email) < 4:
-            flash('Email must be greater than 3 characters.', category='error')
-
-        elif "@" not in email:
-            flash('Email must contain "@"', category='error')
-
-        elif len(department) < 2:
-            flash('Department must be greater than 1 character.', category='error')
+            message="User already exists, please log in."
 
         elif password1 != password2:
-            flash('Passwords don\'t match.', category='error')
-
-        elif len(password1) < 7:
-            flash('Password must be at least 8 characters.', category='error')
+            message="Passwords do not match."
 
         else:
             new_user = User(email=email, department=department, password=generate_password_hash(password1, method="sha256"))
@@ -69,9 +58,8 @@ def signup():
             db.session.commit()
 
             login_user(new_user, remember=True)
-            flash('Account Successfully Created!', category='success')
 
-            return redirect(url_for('views.home'))
+            return redirect(url_for('views.dashboard'))
 
 
-    return render_template("signup.html", user=current_user)
+    return render_template("signup.html", user=current_user, msg=message)
