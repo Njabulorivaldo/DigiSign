@@ -1,0 +1,61 @@
+{% extends "dashboard.html" %}
+
+{% block style%} 
+<link rel="stylesheet" href="../static/css/profile_style.css" />
+<script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
+    
+{% endblock %}
+
+{% block content %}
+<h1 class="nav-item">Profile Overview</h1>
+
+<div class="wrapper">
+    <div class="left">
+        <h1>DEPARTMENT OF</h1>
+         <h1>{{user.department.upper()}}</h1>
+    </div>
+    <div class="right">
+        <div class="info">
+            <h3>Information</h3>
+            <div class="info_data">
+                 <div class="data">
+                    <h4>Email</h4>
+                    <input class="input-edit" type="email" id="email" name="email" value="{{user.email}}">
+                 </div>
+                 <div class="data">
+                   <h4>Phone</h4>
+                    <p>+27-12-3456-789</p>
+              </div>
+            </div>
+        </div>
+      
+      <div class="projects">
+            <h3>About</h3>
+            <div class="projects_data">
+                 <div class="data">
+                    <h4>Policy</h4>
+                    <p>This is the Department of {{user.department}} description at the University of 
+                        Cape Town. Every information you upload and display to screens are your responsibilities
+                        and you take full accountability for what is rendered to the screen.
+                        The department of {{user.department}} holds rights to discipline or take further actions
+                        against you as a user.
+                    </p>
+                 </div>
+            </div>
+        </div>
+
+        <div class="info">
+            <div class="info_data">
+                 <div class="data">
+                    <p></p>
+                 </div>
+                 <div class="data">
+                    <button type="button" class="btn-delete">Delete User</button>
+                    <button type="button" class="btn">Update Info</button>
+              </div>
+            </div>
+      
+    </div>
+</div>
+
+{% endblock %}

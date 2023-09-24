@@ -1,0 +1,49 @@
+{% extends "dashboard.html" %}
+
+{% block style%} 
+<link rel="stylesheet" href="../static/css/media_style.css" />
+<script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
+    
+{% endblock %}
+
+{% block content %}
+<div class="header_fixed">
+    <table>
+        <thead>
+            <tr>
+                <th>No.</th>
+                <th>Screen</th>
+                <th>Location</th>
+                <th>Status</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <!--
+        {% for screen in user.screens %}
+        
+        <tr>
+            <td>
+                {{ loop.index }}.
+
+            </td>
+            <td>
+            </td>
+            <td>
+                <i class="fas fa-desktop"></i>
+            </td>
+            <td>
+                {{screen.location}}
+            </td>
+            <td>
+                {{screen.status}}
+            </td>
+            <td>
+                <button type="button" onClick="confirmDelete( {{ screen.id }} )">
+                Delete
+                </button>
+            </td>
+        </tr>
+
+        {% endfor %}-->
+
+{% endblock %}
