@@ -1,0 +1,76 @@
+{% extends "dashboard.html" %}
+
+    {% block style %}
+    <link rel="stylesheet" href="../static/css/media_style.css" />
+    <link rel="stylesheet" href="../static/css/screens_style.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        #mediaTable tbody tr:hover {
+            background-color: #f8f9fa;
+            cursor: pointer;
+        }
+
+        .divider {
+            border-right: 1px solid #dee2e6;
+            height: 100%;
+        }
+    </style>
+
+    {%endblock%}
+</head>
+<body-->
+
+{% block content %}
+<div class="container mt-4">
+    <div class="d-flex justify-content-between mb-3">
+        <button onclick="navigateBack()" class="btn btn-secondary">Back</button>
+        <div>
+            <button class="btn btn-primary">Preview</button>
+            <button id="comDetails" class="btn btn-success">Save Composition</button>
+        </div>
+    </div>
+    
+    <div class="d-flex justify-content-between">
+        <div class="divider mr-3 flex-grow-1">
+            <table class="table table-bordered" id="mediaTable">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Type</th>
+                        <th>Tags</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    <!-- Media data will be dynamically populated here -->
+                </tbody>
+            </table>
+        </div>
+        
+        <div class="ml-3 flex-grow-1">
+            <h5>Selected Media</h5>
+            <ul class="list-group" id="selectedMediaList"></ul>
+        </div>
+    </div>
+
+    <div id="compModal" class="popup">
+        <div class="popup-content">
+            
+            <span class="close" id="closeModal">&times;</span>
+            <div class="icon"><i class="fas fa-desktop"></i></div>
+    
+            <form id="compDetails"  >
+                <input type="text" id="na" name="name" placeholder="Enter Comp Name" required >
+                <input type="text" id="description" name="description"  placeholder="Enter description" required >
+                
+                <button type="submit" value="Submit" id="SubmitComp">Add</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{%block script%}
+
+<script src="../static/js/addComposition.js"></script>
+{% endblock%}

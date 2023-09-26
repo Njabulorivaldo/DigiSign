@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Digital-Sign</title>
+  <link rel="stylesheet" href="../static/css/base_style.css" />
+  <!-- Font Awesome Cdn Link -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"/>
+  {%block style%} {% endblock %}
+</head>
+<body>
+  <div class="container">
+    <nav>
+      <ul>
+        <li><a href="/" class="logo">
+          <img src="../static/media/logo.jpg" alt="">
+          <span class="nav-item">DigiSign</span>
+        </a></li>
+        <li><a href="/">
+          <i class="fas fa-home"></i>
+          <span class="nav-item">Home</span>
+        </a></li>
+        <li><a href="/profile" id="profile">
+          <i class="fas fa-user"></i>
+          <span class="nav-item">Profile</span>
+        </a></li>
+        <li><a id="media" href="/media">
+          <i class="fas fa-tasks"></i>
+          <span class="nav-item">Media</span>
+        </a></li>
+        <li><a href="/screens" id="screens">
+          <i class="fas fa-desktop"></i>
+          <span class="nav-item">Screens</span>
+        </a></li>
+        <li><a href="/render" id="render">
+          <i class="fas fa-laptop-code"></i>
+          <span class="nav-item">Render</span>
+        </a></li>
+
+        <li><a href="/logout" id="logout" class="logout">
+          <i class="fas fa-sign-out-alt"></i>
+          <span class="nav-item">Log out</span>
+        </a></li>
+      </ul>
+    </nav>
+
+
+    
+    <section class="main">
+      {% block content %}
+      <div class="main-top">
+        <h1>Overview</h1>
+        <i class="fas fa-user-cog"></i>
+      </div>
+      <div class="main-skills">
+        <div class="card">
+          <i class="fas fa-desktop"></i>
+          <h3>Render To Screens</h3>
+          <p>Display Your Own Data in your Screens</p>
+          <button>Read more...</button>
+        </div>
+        
+        <div class="card">
+          <i class="fas fa-image"></i>
+          <h3>Upload Own Media</h3>
+          <p>Upload As Many As you Want</p>
+          <button>Read more...</button>
+        </div>
+        <div class="card">
+          <i class="fas fa-tasks"></i>
+          <h3>Multiple Media Types</h3>
+          <p>Supports Videos, Audio & Images</p>
+          <button>Read more...</button>
+        </div>
+      </div>
+
+      <section class="main-course">
+        <h1>Demonstration</h1>
+        <div class="course-box">
+          <div class="course">
+            <div class="box">
+              <img src="../static/media/logo.jpg" alt="404">
+            </div>
+            <div class="box">
+
+            </div>
+            <div class="box">
+
+            </div>
+          </div>
+        </div>
+      {% endblock %}
+    </section>
+
+  </div>
+</body>
+{% block script %}
+{% endblock %}
+<script src="../static/js/script.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</html>

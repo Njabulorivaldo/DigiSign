@@ -1,0 +1,58 @@
+{% extends "dashboard.html" %}
+
+{% block style%} 
+<link rel="stylesheet" href="../static/css/media_style.css" />
+<link rel="stylesheet" href="../static/css/screens_style.css" />
+    
+{% endblock %}
+
+{% block content %}
+
+<div class="header_fixed">
+    <table>
+        <thead
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>{{msg}}</td>
+                <td><button onclick="location.href='/addComposition'">+ Add Composition</button></td>
+            </tr>
+            <tr>
+                <th>No.</th>
+                <th> + </th>
+                <th>Name</th>
+                <th>Duration</th>
+                <th></th>
+            </tr>
+        </thead>
+        
+        {% for composition in user.compositions %}
+        
+        <tr>
+            <td>
+                {{ loop.index }}.
+
+            </td>
+            <td>
+                <i class="fas fa-desktop"></i>
+            </td>
+            <td>
+                {{composition.name}}
+            </td>
+            <td>
+                {{composition.duration}}
+            </td>
+            <td>
+                <button type="button" onClick="confirmDelete( {{ composition.id }} )">
+                Delete
+                </button>
+            </td>
+        </tr>
+
+        {% endfor %}
+
+        
+{% endblock %}
+
+

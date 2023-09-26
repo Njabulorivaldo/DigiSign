@@ -1,0 +1,132 @@
+
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    height: 50px;
+    text-align: center;
+}
+
+.header_fixed {
+    max-height: 100vh;
+    width: 100%;
+    overflow: auto;
+    border: 1px solid #dddddd;
+}
+
+.header_fixed thead th {
+    position: sticky;
+    top: 10px;
+    background-color: rgb(139, 133, 133);
+    color: #e6e7e8;
+    font-size: 15px;
+    
+}
+
+th,
+td {
+    border-bottom: 1px solid #dddddd;
+    padding: 10px 20px;
+    font-size: 14px;
+    height: 30px;
+}
+
+td img {
+    height: 60px;
+    width: 60px;
+    border-radius: 30%;
+    border: 5px solid #e6e7e8;
+}
+
+td video {
+    height: 60px;
+    width: 60px;
+    border-radius: 30%;
+    border: 5px solid #e6e7e8;
+}
+
+td audio {
+    height: 60px;
+    width: 230px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+
+tr:nth-child(odd) {
+    background-color: #edeef1;
+}
+
+tr:hover td {
+    color: #44b478;
+    cursor: pointer;
+    background-color: #ffffff;
+}
+
+td button {
+    border: none;
+    padding: 7px 20px;
+    border-radius: 20px;
+    background-color: red;
+    color: #e6e7e8;
+}
+
+td button:hover{
+    background-color: #7e0404;
+}
+
+
+::-webkit-scrollbar {
+    width: 6px;
+}
+
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+
+::-webkit-scrollbar-thumb {
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+
+/* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  .column {
+    width: 15%;
+  }
+}
+
+.upload-section {
+    background-color: #dddddd;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+/* Center the form horizontally */
+.justify-content-center {
+    justify-content: center;
+}
+
+/* Style for the form fields and buttons */
+.form-control {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.btn {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: #0056b3;
+}
+

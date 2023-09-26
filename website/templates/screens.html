@@ -1,0 +1,86 @@
+{% extends "dashboard.html" %}
+
+{% block style%} 
+<link rel="stylesheet" href="../static/css/media_style.css" />
+<link rel="stylesheet" href="../static/css/screens_style.css" />
+<script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
+    
+{% endblock %}
+
+{% block content %}
+
+<div id="popupForm" class="popup">
+    <div class="popup-content">
+        
+        <span class="close" id="closeFormButton">&times;</span>
+        <div class="icon"><i class="fas fa-desktop"></i></div>
+
+        <form id="myForm" onsubmit="handleCodeSubmit(event);">
+            <input type="text" id="screenCode" name="screenCode" placeholder="Enter Screen Code" required >
+            <button type="submit" id="nextButton">Next</button>
+        </form>
+    </div>
+</div>
+
+<div id="myModal" class="popup">
+    <div class="popup-content">
+        
+        <span class="close" id="closeModal">&times;</span>
+        <div class="icon"><i class="fas fa-desktop"></i></div>
+
+        <form id="screenDetails" >
+            <input type="text" id="name" name="name" placeholder="Enter Screen Name" required >
+            <input type="text" id="location" name="location" placeholder="Enter screen location" required >
+            <select name="status" id="status" required>
+                <option value=""> Select Department</option>
+                <option value="Active">Active</option>
+          </select>
+            <button type="submit" value="Submit" id="Submit">Add</button>
+        </form>
+    </div>
+</div>
+  
+<div class="header_fixed">
+    <table>
+        <thead
+
+            <tr>
+                <td colspan="3"></td>
+                <td>{{msg}}</td>
+                <td><button id="openFormButton">+ Add Screen</button></td>
+            </tr>
+            <tr>
+                <th>No.</th>
+                <th>Screen</th>
+                <th>Location</th>
+                <th>Status</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        
+        {% for screen in user.screens %}
+        
+        <tr>
+            <td>
+                {{ loop.index }}.
+
+            </td>
+            <td>
+                <i class="fas fa-desktop"></i>
+            </td>
+            <td>
+                {{screen.location}}
+            </td>
+            <td>
+                {{screen.status}}
+            </td>
+            <td>
+                <button type="button" onClick="deleteScreen( {{ screen.id }} )">
+                Delete
+                </button>
+            </td>
+        </tr>
+
+        {% endfor %}
+        
+{% endblock %}

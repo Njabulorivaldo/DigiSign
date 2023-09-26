@@ -1,0 +1,16 @@
+{% extends "dashboard.html" %}
+
+{% block content %}
+<h1>Upload Contents</h1>
+
+<form method='POST' enctype='multipart/form-data'>
+</br></br></br></br>
+    {{form.hidden_tag()}}
+    {{form.file()}}
+    <br>{{form.submit()}}
+</form>
+
+<br />
+
+
+{% endblock %}
